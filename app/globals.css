@@ -3,19 +3,20 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
-  width: 100vw;
-  height: 100vh;
+  --accent: #46494b;
 }
 
 @theme {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-accent: var(--accent);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #1e2124;
+    --background: 	#1e2124;
     --foreground: #ededed;
+    --accent: #c2c2c2;
   }
 }
 
