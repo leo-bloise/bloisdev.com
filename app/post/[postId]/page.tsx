@@ -6,6 +6,8 @@ import { dracula } from "react-syntax-highlighter/dist/esm/styles/prism";
 import remarkMath from "remark-math";
 import 'katex/dist/katex.min.css'
 import rehypeKatex from "rehype-katex";
+import GoBackIcon from "@/components/icons/GoBackIcon";
+import GoBackButton from "@/components/GoBackButton";
 
 type Props = {
     params: Promise<{ postId: string }>
@@ -23,6 +25,9 @@ export default async function Page({ params }: Props) {
 
     return (
         <article className="prose max-w-[965px] m-auto">
+            <GoBackButton className="absolute top-10 left-10 cursor-pointer">
+                <GoBackIcon />
+            </GoBackButton>
             <header className="flex flex-col items-center p-10 gap-y-4">
                 <h1 className="text-5xl text-center">{post.title}</h1>
                 <h2>Created by: Leonardo Bloise</h2>
