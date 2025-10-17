@@ -5,7 +5,9 @@ import { useRef } from "react";
 
 export default function RotatingCube() {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
-  useCubeAnimation(canvasRef);
+  const canvasSize = 300;
 
-  return <canvas ref={canvasRef} className="max-w-[300px] max-h-[300px]" width={300} height={300} />
+  useCubeAnimation(canvasRef, canvasSize);
+
+  return <canvas ref={canvasRef} className={`max-w-[${canvasSize}px] max-h-[${canvasSize}px]`} width={canvasSize} height={canvasSize} />
 }

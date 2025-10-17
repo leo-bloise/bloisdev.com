@@ -10,7 +10,8 @@ type Vector2 = {
 type Vector3 = number[];
 
 export default function useCubeAnimation(
-  canvasRef: RefObject<HTMLCanvasElement | null>
+  canvasRef: RefObject<HTMLCanvasElement | null>,
+  canvasSize: number = 300
 ) {
   const [rotation, setRotation] = useState<Vector2>({ x: 0.5, y: 0.5 });
   const { 
@@ -75,7 +76,7 @@ export default function useCubeAnimation(
     };
 
     const project = (point: Vector3) => {
-      const scale = 300 / (point[2] + 4);
+      const scale = canvasSize / (point[2] + 4);
       return [point[0] * scale + width / 2, point[1] * scale + height / 2];
     };
 
@@ -105,7 +106,13 @@ export default function useCubeAnimation(
       ctx.arc(x, y, 4, 0, Math.PI * 2);
       ctx.fill();
     });
-  }, [background, rotation, canvasRef.current, foreground]);
+  }, [
+    background, 
+    rotation, 
+    canvasRef.current, 
+    foreground,
+    canvasSize
+  ]);
 
   useEffect(() => {
     let animationFrameId: number;
