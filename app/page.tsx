@@ -1,13 +1,12 @@
-'use client';
-
 import Header from "@/components/Header";
 import Posts from "@/components/Posts";
 import RotatingCube from "@/components/ui/RotatingCube";
-import usePosts from "@/hooks/usePosts";
+import { getPostsFromDb } from "@/lib/db";
 
-export default function Home() {
-  const posts = usePosts();
-
+export default async function Home() {
+  const posts = await getPostsFromDb()
+      .catch(() => []);
+  
   return (
     <main className="flex flex-col w-full gap-y-32">
       <Header />
@@ -20,7 +19,10 @@ export default function Home() {
         </p>
         <p className="text-md italic">Uncle Ben</p>
       </div>
-      {posts.length > 0 && <Posts posts={posts}></Posts>}
+      {posts.length > 0 && <Posts posts={posts.map(post => ({
+        publishedAt: post.createdAt,
+        title: post.title
+      }))}></Posts>}
     </main>
   );
 }
