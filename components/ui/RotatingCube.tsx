@@ -3,9 +3,8 @@
 import useCubeAnimation from "@/hooks/useCubeAnimation";
 import { useRef } from "react";
 
-export default function RotatingCube() {
+export default function RotatingCube({canvasSize = 300}: {canvasSize?: number}) {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
-  const canvasSize = 300;
 
   useCubeAnimation(canvasRef, canvasSize);
 

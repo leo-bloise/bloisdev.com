@@ -1,7 +1,7 @@
 import Header from "@/components/Header";
 import Posts from "@/components/Posts";
 import RotatingCube from "@/components/ui/RotatingCube";
-import { getPostsFromDb } from "@/lib/db";
+import { getPostsFromDb } from "@/lib/posts";
 
 export default async function Home() {
   const posts = await getPostsFromDb()
@@ -21,7 +21,8 @@ export default async function Home() {
       </div>
       {posts.length > 0 && <Posts posts={posts.map(post => ({
         publishedAt: post.createdAt,
-        title: post.title
+        title: post.title,
+        id: post.id.toString()
       }))}></Posts>}
     </main>
   );

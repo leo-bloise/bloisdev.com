@@ -1,6 +1,14 @@
 import PostsLink from "./ui/PostsLink";
 
-export default function Posts({ posts }: { posts: any[]}) {
+type Props = {
+  posts: {
+    publishedAt: Date;
+    title: string;
+    id: string;
+  }[]
+}
+
+export default function Posts({ posts }: Props) {
   return (
     <ul className="flex flex-col gap-y-12 items-center pb-10">
       {posts.map((post, index) => (
@@ -8,7 +16,7 @@ export default function Posts({ posts }: { posts: any[]}) {
           key={index}
           date={post.publishedAt}
           title={post.title}
-          href={''}
+          href={`/post/${post.id}`}
         ></PostsLink>
       ))}
     </ul>
