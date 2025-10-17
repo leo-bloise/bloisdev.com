@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Domine } from 'next/font/google';
 import "./globals.css";
+import RotatingCube from "@/components/RotatingCube";
 
 const domine = Domine({
   subsets: ['latin'],
