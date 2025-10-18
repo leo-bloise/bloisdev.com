@@ -8,8 +8,8 @@ import Link from "next/link";
 export default function Page() {
     return <main className="flex flex-col w-full gap-y-32 pb-4">
         <Header />
-        <h1 className="text-7xl text-center">Contact me</h1>
-        <article className="flex items-center justify-around">
+        <h1 className="text-5xl sm:text-6xl text-center">Contact me</h1>
+        <article className="flex flex-col gap-y-6 sm:flex-row items-center justify-around">
             <Link
                 href={"https://www.linkedin.com/in/leobloise/"}
                 target="_blank"
