@@ -19,6 +19,11 @@ export default function Menu() {
             href="/aboutme" 
             active={pathname === "/aboutme"}
         />
+        <MenuItem 
+          text="Contact me" 
+          href="/contactme" 
+          active={pathname == '/contactme'} 
+        />
       </ul>
     </nav>
   );
